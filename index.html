@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard Shutdown 23 Nov 2026 – Pelletizing · Kiln · CTS</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{
+  --bg:#eef2f7; --card:#ffffff; --soft:#f6f8fb; --line:#e2e7ef; --line2:#cfd7e3;
+  --ink:#1c2533; --ink2:#4b5668; --mute:#8590a2;
+  --accent:#1f6fd1; --accentSoft:#e6f0fd;
+  --t1:#eb6834; --t2:#2a78d6;
+  --ok:#1f8a4c; --okSoft:#e3f5ea;
+  --warn:#a76a00; --warnSoft:#fff3d6;
+  --bad:#c7362c; --badSoft:#fde8e6;
+  --idle:#5f6b7c; --idleSoft:#edf0f5;
+  --g-ops:#0e9f8e; --g-ops2:#0b7f9b; --g-mek:#2f6fd1; --g-bcv:#7b5ad6; --g-ins:#d08a00; --g-ele:#d6455d;
+  --r:14px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:1380px;margin:0 auto;padding:20px 20px 70px}
+h1{font-size:23px;margin:0;font-weight:700;letter-spacing:.2px}
+h2{font-size:16px;margin:0 0 4px;font-weight:700}
+.muted{color:var(--mute)} .ink2{color:var(--ink2)} .small{font-size:13px} .right{text-align:right}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;box-shadow:0 2px 8px rgba(20,40,80,.05)}
+.card h2{display:flex;align-items:center;gap:8px}
+.card h2::before{content:"";width:6px;height:18px;border-radius:3px;background:linear-gradient(180deg,#1f6fd1,#16a39a)}
+
+/* hero */
+.hero{background:linear-gradient(120deg,#123a73 0%,#1f6fd1 55%,#14a397 100%);color:#fff;border-radius:18px;padding:20px 22px 16px;margin-bottom:14px;box-shadow:0 8px 24px rgba(31,111,209,.25)}
+.hero .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;align-items:flex-start}
+.hero .sub{color:rgba(255,255,255,.82);font-size:13px;margin-top:2px}
+.clock{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);border-radius:12px;padding:6px 12px;font-weight:600;white-space:nowrap}
+.strip{display:flex;gap:8px;margin-top:14px;overflow-x:auto}
+.step{flex:1;min-width:150px;padding:9px 12px;border-radius:12px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22)}
+.step .k{font-size:12px;color:rgba(255,255,255,.8)} .step .v{font-weight:700;font-size:15px}
+.step.done{opacity:.6}
+.step.done .k::before{content:"✓ "}
+.step.now{background:#fff;color:var(--ink);border-color:#fff;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.step.now .k{color:var(--accent);font-weight:700}
+.step.now .k::after{content:" · SEKARANG"}
+
+/* gate */
+.gate{display:flex;gap:14px;align-items:flex-start;border-radius:var(--r);padding:14px 18px;margin-bottom:14px;color:#fff}
+.gate.no{background:linear-gradient(110deg,#e0731c,#f0a02a)}
+.gate.yes{background:linear-gradient(110deg,#178a49,#2fb36a)}
+.gate .ic{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:18px;flex:0 0 38px;background:rgba(255,255,255,.25)}
+.gate .t{font-size:18px;font-weight:700}
+.gate ul{margin:4px 0 0;padding-left:18px;font-size:14px;color:rgba(255,255,255,.95)}
+.gate .w{margin-top:6px;font-size:13px;background:rgba(0,0,0,.14);display:inline-block;padding:3px 10px;border-radius:8px}
+.gate .ink2,.gate .small{color:rgba(255,255,255,.92)}
+
+/* kpis */
+.areas{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-bottom:14px}
+.acard{cursor:pointer;border-radius:16px;padding:14px 16px;background:#fff;border:2px solid transparent;box-shadow:0 2px 8px rgba(20,40,80,.06);position:relative;overflow:hidden;text-align:left;font:inherit;color:inherit}
+.acard::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:var(--ac)}
+.acard:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(20,40,80,.1)}
+.acard.on{border-color:var(--ac);background:color-mix(in srgb,var(--ac) 7%,white)}
+.acard .an{font-weight:800;font-size:16px;color:var(--ac);display:flex;align-items:center;gap:8px}
+.acard .ai{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:color-mix(in srgb,var(--ac) 15%,white);font-size:17px}
+.acard .row2{display:flex;gap:16px;margin-top:8px;font-size:13px;color:var(--ink2)}
+.acard .row2 b{font-size:18px;color:var(--ink)}
+.acard .st{position:absolute;right:12px;top:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:12px;margin-bottom:16px}
+.kpi{position:relative;border-top:4px solid var(--c);padding-top:14px}
+.kpi .ico{position:absolute;right:14px;top:14px;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;font-size:19px;background:color-mix(in srgb,var(--c) 14%,white)}
+.kpi .lbl{font-size:12px;color:var(--mute);font-weight:700;letter-spacing:.4px;text-transform:uppercase;padding-right:44px}
+.kpi .val{font-size:30px;font-weight:800;margin-top:2px;line-height:1.2;color:var(--c)}
+.kpi .s{font-size:13px;color:var(--ink2);margin-top:3px}
+.bar{height:8px;background:var(--idleSoft);border-radius:5px;margin-top:10px;overflow:hidden}
+.bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--c),color-mix(in srgb,var(--c) 60%,white));border-radius:5px}
+.kpi .pill{white-space:normal}
+.prep{display:flex;justify-content:space-between;gap:8px;margin:5px 0;font-size:13px}
+
+/* tabs */
+.tabs{display:flex;gap:8px;margin:0 0 14px;flex-wrap:wrap}
+.tab{background:#fff;border:1px solid var(--line);color:var(--ink2);padding:9px 16px;border-radius:999px;cursor:pointer;font:inherit;font-weight:600;box-shadow:0 1px 3px rgba(20,40,80,.05)}
+.tab:hover{border-color:#b9cdea;color:var(--accent)}
+.tab.on{background:linear-gradient(110deg,#1f6fd1,#14a397);border-color:transparent;color:#fff;box-shadow:0 4px 12px rgba(31,111,209,.3)}
+.tab .cnt{display:inline-block;min-width:20px;padding:0 6px;margin-left:7px;border-radius:10px;background:#e5483c;color:#fff;font-size:12px;font-weight:700}
+.cnt[hidden]{display:none!important}
+.view{display:none}.view.on{display:block}
+.gap{height:14px}
+
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{color:var(--mute);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.3px;background:var(--card);position:sticky;top:0;z-index:1}
+tr.ahead td{font-weight:800;font-size:15px;color:#fff;background:var(--ac);border-bottom:0;padding:10px 12px;letter-spacing:.3px}
+tr.grp td{font-weight:700;font-size:13px;color:var(--gc,#5f6b7c);background:color-mix(in srgb,var(--gc,#5f6b7c) 10%,white);border-left:4px solid var(--gc,#5f6b7c)}
+tr.a-pel{--ac:#7b5ad6} tr.a-kiln{--ac:#e0602a} tr.a-cts{--ac:#1f6fd1}
+tr.grp-ops{--gc:var(--g-ops)} tr.grp-ops2{--gc:var(--g-ops2)} tr.grp-mek{--gc:var(--g-mek)} tr.grp-bcv{--gc:var(--g-bcv)} tr.grp-ins{--gc:var(--g-ins)} tr.grp-ele{--gc:var(--g-ele)}
+tr.trow td:first-child{border-left:4px solid var(--gc,transparent)}
+tbody tr.trow:hover td{background:#f8fbff}
+input,select,textarea,button{font:inherit}
+input,select,textarea{background:#fff;color:var(--ink);border:1px solid var(--line2);border-radius:8px;padding:6px 8px;font-size:14px}
+input:focus,select:focus,textarea:focus{outline:3px solid #cfe0f8;border-color:var(--accent)}
+input[type=number]{width:90px}
+.in-wide{width:100%}
+.btn{background:#fff;border:1px solid var(--line2);color:var(--ink);padding:7px 14px;border-radius:9px;cursor:pointer;font-weight:600}
+.btn:hover{background:var(--soft)}
+.btn.pri{background:linear-gradient(110deg,#1f6fd1,#1a8fc4);border-color:transparent;color:#fff}
+.btn.pri:hover{filter:brightness(1.07)}
+.btn.ok{background:var(--okSoft);color:var(--ok);border-color:#a9dcbc}
+.btn.bad{background:var(--badSoft);color:var(--bad);border-color:#f0b9b3}
+.btn.sm{padding:4px 11px;font-size:13px}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.pill{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:2px 10px;font-size:12.5px;font-weight:700;white-space:nowrap}
+.p-idle{background:var(--idleSoft);color:var(--idle)}
+.p-run{background:#ffe9b3;color:#8a5600}
+.p-ok{background:#c9efd7;color:#13703c}
+.p-bad{background:#fcd3cf;color:#a8261d}
+.p-info{background:#d4e5fc;color:#1857a8}
+select.st-belum{background:var(--idleSoft)} select.st-jalan{background:#ffe9b3;font-weight:600} select.st-selesai{background:#c9efd7;font-weight:600} select.st-kendala{background:#fcd3cf;font-weight:600}
+
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:4px 0 10px}
+.chipbtn{border:1px solid var(--line2);background:#fff;border-radius:999px;padding:4px 13px;cursor:pointer;font-size:13px;color:var(--ink2);font-weight:600}
+.chipbtn.on{background:var(--accent);border-color:var(--accent);color:#fff}
+
+/* gantt */
+.gantt{overflow-x:auto}
+.grow{display:grid;grid-template-columns:270px 1fr;align-items:center;min-width:980px}
+.grow .nm{font-size:13px;color:var(--ink2);padding:4px 10px 4px 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-left:4px solid var(--gc,transparent)}
+.track{position:relative;height:26px;border-left:1px solid var(--line)}
+.track.alt{background:var(--soft)}
+.gbar{position:absolute;top:5px;height:16px;border-radius:5px}
+.gplan{background:color-mix(in srgb,var(--gc,#8aa) 22%,white);border:1px solid color-mix(in srgb,var(--gc,#8aa) 45%,white)}
+.gact{top:9px;height:8px;border-radius:4px}
+.ghead{position:relative;height:22px;font-size:11.5px;color:var(--mute)}
+.ghead span{position:absolute;transform:translateX(-50%);white-space:nowrap}
+.vline{position:absolute;top:0;bottom:0;width:0;border-left:2px dashed}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--ink2);margin:8px 0 10px}
+.sw{display:inline-block;width:18px;height:9px;border-radius:3px;margin-right:6px;vertical-align:middle}
+
+/* rotation slots */
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.slot{border-radius:14px;padding:12px 14px;background:#fff;border:1px solid var(--line);box-shadow:0 2px 6px rgba(20,40,80,.05)}
+.slot.done{background:linear-gradient(135deg,#1f9a55,#3cbf78);color:#fff;border-color:transparent}
+.slot.done .who{color:rgba(255,255,255,.85)}
+.slot.miss{background:linear-gradient(135deg,#d9473b,#ee6e58);color:#fff;border-color:transparent}
+.slot.miss .who{color:rgba(255,255,255,.85)}
+.slot.due{background:linear-gradient(135deg,#f1a21b,#f7c04a);color:#3d2a00;border-color:transparent;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(241,162,27,.5)}50%{box-shadow:0 0 0 8px rgba(241,162,27,0)}}
+@media (prefers-reduced-motion:reduce){.slot.due{animation:none}}
+.slot .h{font-size:22px;font-weight:800}
+.slot input{width:100%;margin-top:8px}
+.slot .pill{background:rgba(255,255,255,.28);color:inherit}
+.slot.next .pill{background:var(--idleSoft);color:var(--idle)}
+
+.grid2{display:grid;grid-template-columns:minmax(300px,380px) 1fr;gap:14px}
+@media(max-width:900px){.grid2{grid-template-columns:1fr}}
+.form label{display:block;font-size:13px;color:var(--ink2);margin:10px 0 4px;font-weight:600}
+.form .row{display:flex;gap:10px;flex-wrap:wrap}
+.form .row>div{flex:1;min-width:120px}
+.form input,.form select{width:100%}
+.info{border-radius:10px;padding:10px 12px;margin-top:10px;font-size:14px;background:var(--accentSoft);border:1px solid #cfe0f8}
+.chunksel{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:640px}
+.chunksel button{display:flex;flex-direction:column;gap:2px;align-items:flex-start;padding:14px 16px;border-radius:14px;border:2px solid var(--line2);background:#fff;cursor:pointer;font:inherit;color:var(--ink2)}
+.chunksel button .big{font-size:17px;font-weight:800;color:var(--ink)}
+.chunksel button:hover{border-color:#a9c4ea}
+.chunksel button.on{border-color:var(--accent);background:var(--accentSoft);box-shadow:0 4px 12px rgba(31,111,209,.18)}
+.chunksel button.on .big::before{content:"✓ ";color:var(--accent)}
+.chartbox{position:relative;height:360px}
+.note{font-size:13px;color:var(--mute);margin-top:6px}
+.toast{position:fixed;right:18px;bottom:18px;background:#fff;border:1px solid #f0b9b3;border-left:6px solid var(--bad);color:var(--ink);padding:11px 16px;border-radius:10px;display:none;max-width:380px;z-index:9;box-shadow:0 8px 24px rgba(0,0,0,.15)}
+.toast.okk{border-color:#a9dcbc;border-left-color:var(--ok)}
+.banner{background:var(--warnSoft);border:1px solid #f3d48a;color:#6b4a00;border-radius:10px;padding:9px 14px;margin-bottom:12px;font-size:14px;display:none}
+.scroll{max-height:640px;overflow:auto}
+tr.hnow td{background:#e2eefd}
+tr.hsaved td{background:#f3fbf6}
+tr.hfut td{color:var(--ink2)}
+.ckitem{font-size:13px;color:var(--ink2);margin:1px 0}
+.who{font-size:12px;color:var(--mute)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <div class="top">
+      <div>
+        <h1>Dashboard Shutdown 23 November 2026 · Pelletizing · Kiln · Calcine Transfer Car</h1>
+        <div class="sub">Input manual tim lapangan · waktu WITA · PIC utama = SPV area · sumber: Master List Shutdown EMU Rev.01 · <a id="repoInfo" target="_blank" rel="noopener" style="color:#fff"></a></div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end"><div class="clock" id="clock"></div><button class="clock" id="authBtn" style="cursor:pointer;font:inherit;font-weight:600;color:#fff">🔑 Login editor</button></div>
+    </div>
+    <div class="strip" id="strip"></div>
+  </div>
+  <div class="banner" id="banner"></div>
+  <div class="gate no" id="gate"></div>
+
+  <div class="areas" id="areas"></div>
+  <div class="kpis">
+    <div class="card kpi" style="--c:#2f6fd1"><div class="ico">🛠️</div><div class="lbl">Pekerjaan selesai</div><div class="val" id="kTask">–</div><div class="s" id="kTaskSub"></div><div class="bar"><i id="kTaskBar" style="width:0"></i></div></div>
+    <div class="card kpi" style="--c:#1f8a4c"><div class="ico">✅</div><div class="lbl">Cek equipment OK</div><div class="val" id="kCheck">–</div><div class="s" id="kCheckSub"></div><div class="bar"><i id="kCheckBar" style="width:0"></i></div></div>
+    <div class="card kpi" style="--c:#7b5ad6"><div class="ico">🔄</div><div class="lbl">Putaran kiln (aux) per jam</div><div class="val" id="kRot">–</div><div class="s" id="kRotSub"></div><div class="bar"><i id="kRotBar" style="width:0"></i></div></div>
+    <div class="card kpi" style="--c:#eb6834"><div class="ico">🌡️</div><div class="lbl">Kontrol temperatur</div><div class="val" id="kMode" style="color:var(--ink)">–</div><div class="s" id="kModeSub"></div></div>
+    <div class="card kpi" style="--c:#0e9f8e"><div class="ico">📦</div><div class="lbl">Persiapan sebelum stop</div><div id="kPrep" style="margin-top:18px">–</div></div>
+  </div>
+
+  <div class="tabs" role="tablist">
+    <button class="tab on" data-v="pekerjaan">Pekerjaan</button>
+    <button class="tab" data-v="putaran">🔥 Putaran Kiln<span class="cnt" id="cntRot" hidden></span></button>
+    <button class="tab" data-v="cek">Cek Equipment<span class="cnt" id="cntChk" hidden></span></button>
+    <button class="tab" data-v="temp">🔥 Temperatur Kiln<span class="cnt" id="cntTemp" hidden></span></button>
+    <button class="tab" data-v="setting">Setting</button>
+  </div>
+
+  <!-- PEKERJAAN -->
+  <section class="view on" id="v-pekerjaan">
+    <div class="card">
+      <h2>Timeline 22–23 Nov</h2>
+      <div class="legend">
+        <span><i class="sw" style="background:#dbe7f8;border:1px solid #a9c4ea"></i>Plan (warna = bagian)</span>
+        <span><i class="sw" style="background:#d9a21b"></i>Aktual – berjalan</span>
+        <span><i class="sw" style="background:#4c9a50"></i>Aktual – selesai</span>
+        <span><i class="sw" style="background:#c9544c"></i>Kendala</span>
+        <span><i class="sw" style="background:none;border-left:2px dashed var(--ink2);width:2px"></i>Milestone · garis gelap = sekarang</span>
+      </div>
+      <div class="gantt" id="gantt"></div>
+    </div>
+    <div class="gap"></div>
+    <div class="card">
+      <h2>Daftar pekerjaan</h2>
+      <div class="note" style="margin:0 0 6px">Ubah status → jam aktual tercatat otomatis (bisa dikoreksi). PIC utama = SPV area; isi “Dicek oleh” dengan nama yang memverifikasi pekerjaan selesai.</div>
+      <div class="filters">
+        <span class="small ink2">PIC / SPV:</span><select id="fPic"></select>
+        <span class="small ink2" style="margin-left:10px">Tampilkan:</span>
+        <button class="chipbtn on" data-f="all">Semua</button>
+        <button class="chipbtn" data-f="open">Belum selesai</button>
+        <button class="chipbtn" data-f="late">Terlambat / kendala</button>
+      </div>
+      <div class="scroll"><table id="taskTbl"></table></div>
+    </div>
+  </section>
+
+  <!-- PUTARAN -->
+  <section class="view" id="v-putaran">
+    <div class="card">
+      <h2>Wajib putar kiln 1× tiap jam dengan auxiliary drive</h2>
+      <div class="note" style="margin:0 0 12px">Tanggung jawab: <b>SPV Operation</b>. Sebelum memutar, pastikan tidak ada personel/pekerjaan di area riding ring, webco seal, big door & main drive (koordinasi dengan SPV mekanik). Tekan “Sudah diputar” setiap kali selesai memutar; catatan ops opsional.</div>
+      <div class="slots" id="slots"></div>
+    </div>
+  </section>
+
+  <!-- CEK -->
+  <section class="view" id="v-cek">
+    <div class="card">
+      <h2>Wajib cek semua equipment sebelum kiln running</h2>
+      <div class="note" style="margin:0 0 10px">Item terkunci sampai pekerjaan terkait Selesai; item Umum terbuka setelah semua pekerjaan selesai. Isi nama pengecek (boleh delegasi SPV), lalu OK / NOK. NOK wajib ada catatan temuan.</div>
+      <div class="filters">
+        <button class="chipbtn on" data-c="all">Semua</button>
+        <button class="chipbtn" data-c="ready">Siap dicek</button>
+        <button class="chipbtn" data-c="nok">NOK</button>
+        <button class="chipbtn" data-c="locked">Terkunci</button>
+      </div>
+      <div class="scroll"><table id="checkTbl"></table></div>
+      <div class="form" style="margin-top:14px;border-top:1px solid var(--line);padding-top:6px">
+        <label style="font-size:14px;color:var(--ink)">Tambah item cek</label>
+        <div class="row">
+          <div><input id="ncEq" placeholder="Equipment"></div>
+          <div style="flex:2"><input id="ncItem" placeholder="Poin yang dicek"></div>
+          <div><select id="ncTask"></select></div>
+          <div style="flex:0 0 auto"><button class="btn" id="ncAdd">Tambah</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEMP -->
+  <section class="view" id="v-temp">
+    <div class="card">
+      <h2>Kondisi sebelum shutdown</h2>
+      <div class="note" style="margin:0 0 10px">Dipilih sekali di awal. Menentukan parameter acuan untuk seluruh pendinginan & heating up.</div>
+      <div class="chunksel" id="chunkSel">
+        <button data-c="false"><span class="big">Tidak ada chunk</span><span>Acuan <b style="color:var(--t1)">T1</b></span></button>
+        <button data-c="true"><span class="big">Ada chunk</span><span>Acuan <b style="color:var(--t2)">T2</b></span></button>
+      </div>
+      <div style="margin-top:10px" id="chunkInfo"></div>
+    </div>
+    <div class="gap"></div>
+    <div class="card">
+      <h2>Tren T1 & T2</h2>
+      <div class="legend">
+        <span><i class="sw" style="background:var(--t1)"></i><span class="t1name">T1</span></span>
+        <span><i class="sw" style="background:var(--t2)"></i><span class="t2name">T2</span></span>
+        <span><i class="sw" style="background:none;border-top:2px dashed var(--ink2);height:0"></i>Target (warna = parameter)</span>
+      </div>
+      <div class="chartbox"><canvas id="chart"></canvas></div>
+    </div>
+    <div class="gap"></div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+        <h2>Input temperatur per jam</h2>
+        <button class="btn bad" id="tReset">Reset semua isian temperatur</button>
+      </div>
+      <div class="note" style="margin:0 0 10px">Satu baris = satu jam, mulai jam mulai pendinginan. Isi temperatur parameter acuan (sesuai kondisi chunk di atas) → tekan Simpan. Baris jam 21:00 dan jam mulai heating jadi acuan target. </div>
+      <div class="scroll" id="hourWrap" style="max-height:560px"><table id="hourTbl"></table></div>
+    </div>
+  </section>
+
+  <!-- SETTING -->
+  <section class="view" id="v-setting">
+    <div class="grid2" style="grid-template-columns:1fr 1fr">
+      <div class="card form">
+        <h2>Fase 1 · Pendinginan perlahan</h2>
+        <div class="row">
+          <div><label>Mulai pendinginan</label><input type="datetime-local" id="cStart"></div>
+          <div><label>Laju turun maks (°C/jam)</label><input type="number" id="cRate"></div>
+        </div>
+        <div class="info" id="cInfo"></div>
+        <h2 style="margin-top:18px">Fase 2 · Heating up</h2>
+        <div class="row">
+          <div><label>Mulai heating up</label><input type="datetime-local" id="hStart"></div>
+        </div>
+        <label>Tahapan heating (dimulai dari nilai aktual saat mulai heating)</label>
+        <table id="stTbl"></table>
+        <div class="row" style="margin-top:6px">
+          <div><input type="number" id="stRate" placeholder="Laju °C/jam"></div>
+          <div><input type="number" id="stTo" placeholder="Sampai °C (kosong = suhu awal pendinginan)"></div>
+          <div><input type="number" step="0.5" id="stHold" placeholder="Hold (jam)"></div>
+          <div style="flex:0 0 auto"><button class="btn" id="stAdd">Tambah tahap</button></div>
+        </div>
+        <div class="info" id="hInfo"></div>
+      </div>
+      <div class="card form">
+        <h2>Umum</h2>
+        <div class="row">
+          <div><label>Nama T1</label><input id="sT1n" placeholder="T1"></div>
+          <div><label>Nama T2</label><input id="sT2n" placeholder="T2"></div>
+          <div><label>Toleransi ± (°C)</label><input type="number" id="sTol"></div>
+        </div>
+        <h2 style="margin-top:18px">Milestone</h2>
+        <div class="row">
+          <div><label>Stop feeding</label><input type="datetime-local" id="mStop"></div>
+          <div><label>Power off</label><input type="datetime-local" id="mOff"></div>
+        </div>
+        <div class="row">
+          <div><label>Power on</label><input type="datetime-local" id="mOn"></div>
+          <div><label>Kiln running normal</label><input type="datetime-local" id="mRun"></div>
+        </div>
+        <h2 style="margin-top:18px">Putaran auxiliary</h2>
+        <div class="row">
+          <div><label>Mulai (jam pertama)</label><input type="datetime-local" id="aStart"></div>
+          <div><label>Sampai (main drive jalan lagi)</label><input type="datetime-local" id="aEnd"></div>
+        </div>
+        <div style="margin-top:16px"><button class="btn pri" id="sSave">Simpan semua setting</button></div>
+        <div class="note" style="margin-top:10px">Pendinginan: target = nilai aktual di jam mulai pendinginan − laju maks × jam (di bawah garis = turun terlalu cepat). Heating: mulai dari nilai aktual saat mulai heating, naik per tahap, lalu datar sampai running normal. Laju antar pembacaan ikut dicek.</div>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="toast" id="toast"></div>
+<div id="authDlg" style="display:none;position:fixed;inset:0;background:rgba(18,30,50,.45);z-index:20;align-items:center;justify-content:center;padding:16px">
+  <div class="card" style="max-width:520px;width:100%">
+    <h2>Login editor (GitHub)</h2>
+    <div class="note" style="margin:4px 0 10px">Tanpa login, dashboard hanya bisa dilihat. Untuk input, tempel <b>fine-grained personal access token</b> GitHub kamu (akses repo ini, permission <b>Contents: Read and write</b>). Token disimpan hanya di browser ini – klik Logout bila memakai PC bersama.</div>
+    <input id="tokIn" type="password" placeholder="github_pat_…" style="width:100%">
+    <div class="note"><a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">Buat token di GitHub</a> · lihat README repo untuk langkahnya.</div>
+    <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px"><button class="btn" id="tokCancel">Batal</button><button class="btn pri" id="tokSave">Login</button></div>
+  </div>
+</div>
+<script>
+/* Ganti bila tidak memakai GitHub Pages standar (owner.github.io/repo) */
+window.DASH_CONFIG={ owner:"", repo:"", dataBranch:"data" };
+</script>
+<script src="store.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
