@@ -1,0 +1,26 @@
+{
+ "main": {
+  "auxEnd": "2026-11-23T19:00",
+  "auxStart": "2026-11-23T08:00",
+  "chunk": true,
+  "coolCtl": "auto",
+  "coolRate": 20,
+  "coolStart": "2026-11-22T21:00",
+  "heatCtl": "auto",
+  "heatStages": [
+   {
+    "hold": 0,
+    "rate": 25,
+    "to": null
+   }
+  ],
+  "heatStart": "2026-11-23T19:00",
+  "mOff": "2026-11-23T08:00",
+  "mOn": "2026-11-23T19:00",
+  "mRun": "2026-11-24T06:00",
+  "mStop": "2026-11-23T04:00",
+  "t1Name": "T1",
+  "t2Name": "T2",
+  "tol": 10
+ }
+}

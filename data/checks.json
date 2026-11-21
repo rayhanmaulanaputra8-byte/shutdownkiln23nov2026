@@ -1,0 +1,258 @@
+{
+ "c01": {
+  "order": 1,
+  "equipment": "Calcine Container Car – Drum Hoist 63T",
+  "items": [
+   "Posisi drum & balance west–east sesuai",
+   "Wire rope tergulung rapi, tidak ada kink",
+   "Brake & limit switch hoist berfungsi",
+   "Test angkat tanpa beban"
+  ],
+  "tasks": [
+   "t01"
+  ],
+  "result": "",
+  "note": "",
+  "checker": "",
+  "at": "",
+  "by": "",
+  "general": false
+ },
+ "c02": {
+  "order": 2,
+  "equipment": "Calcine Transfer Car",
+  "items": [
+   "Cover roller terpasang & kencang",
+   "Rail bersih dari material/tools",
+   "Test jalan transfer car maju–mundur"
+  ],
+  "tasks": [
+   "t02"
+  ],
+  "result": "",
+  "note": "",
+  "checker": "",
+  "at": "",
+  "by": "",
+  "general": false
+ },
+ "c03": {
+  "order": 3,
+  "equipment": "Calcine Transfer Crane & Main Hoist CC",
+  "items": [
+   "Encoder terbaca benar di DCS/HMI",
+   "Monitor CTC menyala & tampilan benar",
+   "Overload axial fan motor main hoist terpasang & trip test OK",
+   "Test gerak crane (travel, traverse, hoist)"
+  ],
+  "tasks": [
+   "t10",
+   "t11",
+   "t15"
+  ],
+  "result": "",
+  "note": "",
+  "checker": "",
+  "at": "",
+  "by": "",
+  "general": false
+ },
+ "c04": {
+  "order": 4,
+  "equipment": "Pulverized Coal Feeding System & PC Bin",
+  "items": [
+   "Pipa conveying & flexible joint terpasang, tidak bocor (leak test)",
+   "Bracket/support pipa kencang",
+   "PC Bin load cell terkalibrasi, nilai wajar di DCS",
+   "Blower/pneumatic conveying test run",
+   "PC bin diisi kembali & supply ke burner siap sebelum heating up"
+  ],
+  "tasks": [
+   "p2",
+   "t03",
+   "t12"
+  ],
+  "result": "",
+  "note": "",
+  "checker": "",
+  "at": "",
+  "by": "",
+  "general": false
+ },
+ "c05": {
+  "order": 5,
+  "equipment": "Kiln Burner & Big Door",
+  "items": [
+   "Manhole big door terpasang & baut kencang",
+   "Castable sudah setting/curing",
+   "Posisi burner & jalur PC ke burner normal"
+  ],
+  "tasks": [
+   "t04"
+  ],
+  "result": "",
+  "note": "",
+  "checker": "",
+  "at": "",
+  "by": "",
+  "general": false
+ },
+ "c06": {
+  "order": 6,
+  "equipment": "Feed Chute BC#12 Kiln",
+  "items": [
+   "Chute terpasang, tidak ada celah/bocor",
+   "Tidak ada tools/sisa material di dalam chute"
+  ],
+  "tasks": [
+   "t04b"
+  ],
+  "result": "",
+  "note": "",
+  "checker": "",
+  "at": "",
+  "by": "",
+  "general": false
+ },
+ "c07": {
+  "order": 7,
+  "equipment": "Hydraulic Thruster Kiln",
+  "items": [
+   "Level oli normal (oli 680), tidak ada rembesan",
+   "Fungsi thruster/brake test OK"
+  ],
+  "tasks": [
+   "t05"
+  ],
+  "result": "",
+  "note": "",
+  "checker": "",
+  "at": "",
+  "by": "",
+  "general": false
+ },
+ "c08": {
+  "order": 8,
+  "equipment": "Riding Ring Tyre #3 – Stopper",
+  "items": [
+   "Hasil repair las stopper no.4, 6, 26 diinspeksi (visual/NDT)",
+   "Permukaan rapi, tidak mengganggu putaran tyre"
+  ],
+  "tasks": [
+   "t06"
+  ],
+  "result": "",
+  "note": "",
+  "checker": "",
+  "at": "",
+  "by": "",
+  "general": false
+ },
+ "c09": {
+  "order": 9,
+  "equipment": "Webco Seal Kiln",
+  "items": [
+   "Seal terpasang penuh, celah sesuai",
+   "Tidak ada bagian seal yang menyentuh/tersangkut saat kiln berputar"
+  ],
+  "tasks": [
+   "t07"
+  ],
+  "result": "",
+  "note": "",
+  "checker": "",
+  "at": "",
+  "by": "",
+  "general": false
+ },
+ "c10": {
+  "order": 10,
+  "equipment": "Belt Conveyor #7",
+  "items": [
+   "Belt terpasang, splice OK",
+   "Tension & tracking normal",
+   "Pull cord, belt sway & emergency stop test",
+   "Run tanpa beban OK"
+  ],
+  "tasks": [
+   "t08"
+  ],
+  "result": "",
+  "note": "",
+  "checker": "",
+  "at": "",
+  "by": "",
+  "general": false,
+  "waiveIf": "p3"
+ },
+ "c11": {
+  "order": 11,
+  "equipment": "Thermocouple Shell Kiln",
+  "items": [
+   "Thermocouple baru terbaca di DCS",
+   "Nilai pembacaan wajar dibanding titik lain"
+  ],
+  "tasks": [
+   "t09"
+  ],
+  "result": "",
+  "note": "",
+  "checker": "",
+  "at": "",
+  "by": "",
+  "general": false
+ },
+ "c14": {
+  "order": 14,
+  "equipment": "Indikasi Ampere Motor",
+  "items": [
+   "Kabel terpasang & terminasi rapi",
+   "Nilai ampere tampil di DCS"
+  ],
+  "tasks": [
+   "t16"
+  ],
+  "result": "",
+  "note": "",
+  "checker": "",
+  "at": "",
+  "by": "",
+  "general": false
+ },
+ "c15": {
+  "order": 15,
+  "equipment": "Dry Ore Bin (yang dibersihkan)",
+  "items": [
+   "Bin bersih, tidak ada material menggantung/coating",
+   "Manhole & gate tertutup kembali",
+   "Tidak ada tools/personel di dalam bin",
+   "Siap diisi kembali"
+  ],
+  "tasks": [
+   "p4"
+  ],
+  "result": "",
+  "note": "",
+  "checker": "",
+  "at": "",
+  "by": "",
+  "general": false
+ },
+ "c16": {
+  "order": 16,
+  "equipment": "Dry Ore Bin Backup & Supply Feed",
+  "items": [
+   "Level dry ore bin backup masih di atas 14 m (cukup untuk start feed)",
+   "Jalur feed dari dry ore bin backup ke kiln siap"
+  ],
+  "tasks": [
+   "p3"
+  ],
+  "result": "",
+  "note": "",
+  "checker": "",
+  "at": "",
+  "by": "",
+  "general": false
+ }
+}
