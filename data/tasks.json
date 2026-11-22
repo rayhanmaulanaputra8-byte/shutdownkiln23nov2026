@@ -44,7 +44,7 @@
   "planStart": "2026-11-23T04:00",
   "planEnd": "2026-11-23T08:00",
   "status": "jalan",
-  "progress": 0,
+  "progress": 100,
   "actStart": "2026-11-23T01:37",
   "actEnd": "2026-11-23T01:41",
   "note": "",
@@ -55,7 +55,7 @@
   "qtyRule": "max",
   "qtyActual": null,
   "updatedBy": "rayhanmaulanaputra8-byte",
-  "updatedAt": "2026-11-23T03:46"
+  "updatedAt": "2026-11-23T04:07"
  },
  "p5": {
   "order": -3,
