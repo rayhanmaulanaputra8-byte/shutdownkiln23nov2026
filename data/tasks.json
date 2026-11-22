@@ -11,7 +11,7 @@
   "work": "Isi feed bin furnace minimal 250 t sebelum stop feeding 04:00",
   "remark": "Input tonase aktual; status Selesai baru bisa jika ≥ 250 t",
   "workGroup": "OPS",
-  "pic": "Ismail",
+  "pic": "haeruddin",
   "planStart": "2026-11-22T21:00",
   "planEnd": "2026-11-23T04:00",
   "status": "jalan",
