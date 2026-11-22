@@ -98,7 +98,7 @@
   "work": "Isi full salah satu dry ore bin sebagai backup bila BC#7 ngaret",
   "remark": "Level di atas 14 m (full) sebelum stop feeding 04:00",
   "workGroup": "OPS",
-  "pic": "SPV Operation",
+  "pic": "Ismail",
   "planStart": "2026-11-23T00:00",
   "planEnd": "2026-11-23T04:00",
   "status": "jalan",
@@ -113,7 +113,7 @@
   "qtyRule": "gt",
   "qtyActual": null,
   "updatedBy": "rayhanmaulanaputra8-byte",
-  "updatedAt": "2026-11-23T01:40"
+  "updatedAt": "2026-11-23T03:47"
  },
  "p4": {
   "order": -1,
