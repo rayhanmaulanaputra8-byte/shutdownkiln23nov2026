@@ -2,7 +2,7 @@
  "main": {
   "auxEnd": "2026-11-23T19:00",
   "auxStart": "2026-11-23T08:00",
-  "chunk": true,
+  "chunk": false,
   "coolCtl": "auto",
   "coolRate": 20,
   "coolStart": "2026-11-22T21:00",
