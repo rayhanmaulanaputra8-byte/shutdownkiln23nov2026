@@ -69,7 +69,7 @@
   "work": "Kosongkan salah satu dry ore bin (untuk dibersihkan saat kiln mati)",
   "remark": "Level di bawah 9,5 m sebelum stop feeding 04:00",
   "workGroup": "OPS",
-  "pic": "SPV Operation",
+  "pic": "Ismail",
   "planStart": "2026-11-23T00:00",
   "planEnd": "2026-11-23T04:00",
   "status": "jalan",
@@ -84,7 +84,7 @@
   "qtyRule": "lt",
   "qtyActual": null,
   "updatedBy": "rayhanmaulanaputra8-byte",
-  "updatedAt": "2026-11-23T01:41"
+  "updatedAt": "2026-11-23T03:45"
  },
  "p3": {
   "order": -2,
