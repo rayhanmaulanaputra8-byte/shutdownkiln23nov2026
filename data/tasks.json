@@ -106,14 +106,14 @@
   "actStart": "2026-11-23T01:39",
   "actEnd": "",
   "note": "",
-  "checkedBy": "",
+  "checkedBy": "Ismail",
   "short": "Dry ore bin backup full",
   "qtyTarget": 14,
   "qtyUnit": "m",
   "qtyRule": "gt",
   "qtyActual": null,
   "updatedBy": "rayhanmaulanaputra8-byte",
-  "updatedAt": "2026-11-23T01:39"
+  "updatedAt": "2026-11-23T01:40"
  },
  "p4": {
   "order": -1,
