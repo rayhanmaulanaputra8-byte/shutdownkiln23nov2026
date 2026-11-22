@@ -76,7 +76,7 @@
   "progress": 100,
   "actStart": "2026-11-23T01:36",
   "actEnd": "",
-  "note": "",
+  "note": "Bin 2 empty",
   "checkedBy": "Ismail",
   "short": "Kosongkan 1 dry ore bin",
   "qtyTarget": 9.5,
@@ -84,7 +84,7 @@
   "qtyRule": "lt",
   "qtyActual": null,
   "updatedBy": "rayhanmaulanaputra8-byte",
-  "updatedAt": "2026-11-23T01:40"
+  "updatedAt": "2026-11-23T01:41"
  },
  "p3": {
   "order": -2,
