@@ -48,14 +48,14 @@
   "actStart": "2026-11-23T01:37",
   "actEnd": "",
   "note": "",
-  "checkedBy": "",
+  "checkedBy": "haeruddin",
   "short": "PC bin dikosongkan",
   "qtyTarget": 0,
   "qtyUnit": "t",
   "qtyRule": "max",
   "qtyActual": null,
   "updatedBy": "rayhanmaulanaputra8-byte",
-  "updatedAt": "2026-11-23T01:37"
+  "updatedAt": "2026-11-23T01:39"
  },
  "p5": {
   "order": -3,
