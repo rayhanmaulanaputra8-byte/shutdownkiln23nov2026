@@ -82,9 +82,9 @@
   "qtyTarget": 9.5,
   "qtyUnit": "m",
   "qtyRule": "lt",
-  "qtyActual": null,
+  "qtyActual": 10.5,
   "updatedBy": "rayhanmaulanaputra8-byte",
-  "updatedAt": "2026-11-23T03:47"
+  "updatedAt": "2026-11-23T04:15"
  },
  "p3": {
   "order": -2,
