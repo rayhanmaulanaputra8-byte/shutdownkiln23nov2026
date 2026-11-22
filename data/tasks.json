@@ -14,9 +14,9 @@
   "pic": "SPV Operation",
   "planStart": "2026-11-22T21:00",
   "planEnd": "2026-11-23T04:00",
-  "status": "belum",
+  "status": "jalan",
   "progress": 0,
-  "actStart": "",
+  "actStart": "2026-11-23T01:39",
   "actEnd": "",
   "note": "",
   "checkedBy": "",
@@ -24,7 +24,9 @@
   "qtyTarget": 250,
   "qtyUnit": "t",
   "qtyRule": "min",
-  "qtyActual": null
+  "qtyActual": null,
+  "updatedBy": "rayhanmaulanaputra8-byte",
+  "updatedAt": "2026-11-23T01:39"
  },
  "p2": {
   "order": -4,
