@@ -40,7 +40,7 @@
   "work": "Kosongkan pulverized coal (PC bin) sebelum kiln mati",
   "remark": "Prasyarat perbaikan pipa conveying & kalibrasi PC bin · Selesai jika ≤ 0 t",
   "workGroup": "OPS",
-  "pic": "SPV Operation",
+  "pic": "Ismail",
   "planStart": "2026-11-23T04:00",
   "planEnd": "2026-11-23T08:00",
   "status": "jalan",
@@ -55,7 +55,7 @@
   "qtyRule": "max",
   "qtyActual": null,
   "updatedBy": "rayhanmaulanaputra8-byte",
-  "updatedAt": "2026-11-23T01:41"
+  "updatedAt": "2026-11-23T03:46"
  },
  "p5": {
   "order": -3,
