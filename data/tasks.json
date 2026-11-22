@@ -53,7 +53,7 @@
   "qtyTarget": 0,
   "qtyUnit": "t",
   "qtyRule": "max",
-  "qtyActual": null,
+  "qtyActual": 0,
   "updatedBy": "rayhanmaulanaputra8-byte",
   "updatedAt": "2026-11-23T04:07"
  },
