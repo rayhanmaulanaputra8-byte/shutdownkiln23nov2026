@@ -155,14 +155,14 @@
   "pic": "ENOS",
   "planStart": "2026-11-23T08:00",
   "planEnd": "2026-11-23T09:00",
-  "status": "jalan",
-  "progress": 0,
+  "status": "selesai",
+  "progress": 100,
   "actStart": "2026-11-23T09:15",
-  "actEnd": "",
+  "actEnd": "2026-11-23T10:20",
   "note": "Issue translator",
   "checkedBy": "",
   "updatedBy": "rayhanmaulanaputra8-byte",
-  "updatedAt": "2026-11-23T09:15"
+  "updatedAt": "2026-11-23T10:20"
  },
  "t02": {
   "order": 2,
