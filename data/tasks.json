@@ -299,14 +299,14 @@
   "pic": "ENOS, SULKIFLY",
   "planStart": "2026-11-23T12:00",
   "planEnd": "2026-11-23T17:00",
-  "status": "jalan",
-  "progress": 75,
+  "status": "selesai",
+  "progress": 100,
   "actStart": "2026-11-23T08:30",
   "actEnd": "2026-11-23T10:51",
   "note": "Tinggal 1 segment yang  patah kemarin",
   "checkedBy": "Pablo",
   "updatedBy": "rayhanmaulanaputra8-byte",
-  "updatedAt": "2026-11-23T10:51"
+  "updatedAt": "2026-11-24T06:41"
  },
  "t07": {
   "order": 8,
