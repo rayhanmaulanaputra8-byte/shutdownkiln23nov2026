@@ -345,11 +345,11 @@
   "progress": 15,
   "actStart": "2026-11-23T08:28",
   "actEnd": "2026-11-23T10:03",
-  "note": "Belt miring",
+  "note": "",
   "checkedBy": "Pablo",
   "waiveIf": "p3",
   "updatedBy": "rayhanmaulanaputra8-byte",
-  "updatedAt": "2026-11-23T10:03"
+  "updatedAt": "2026-11-23T10:04"
  },
  "t09": {
   "order": 10,
