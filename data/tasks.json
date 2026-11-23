@@ -341,7 +341,7 @@
   "pic": "SBM, SULKIFLY",
   "planStart": "2026-11-23T08:00",
   "planEnd": "2026-11-23T19:00",
-  "status": "kendala",
+  "status": "jalan",
   "progress": 45,
   "actStart": "2026-11-23T08:28",
   "actEnd": "2026-11-23T10:52",
@@ -349,7 +349,7 @@
   "checkedBy": "Pablo",
   "waiveIf": "p3",
   "updatedBy": "rayhanmaulanaputra8-byte",
-  "updatedAt": "2026-11-23T10:52"
+  "updatedAt": "2026-11-23T11:12"
  },
  "t09": {
   "order": 10,
