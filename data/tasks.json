@@ -370,14 +370,14 @@
   "pic": "YANCE",
   "planStart": "2026-11-23T08:00",
   "planEnd": "2026-11-23T17:00",
-  "status": "jalan",
-  "progress": 0,
+  "status": "selesai",
+  "progress": 100,
   "actStart": "2026-11-23T09:09",
-  "actEnd": "",
+  "actEnd": "2026-11-23T18:39",
   "note": "Salah copot TC 1, T3 belum terbaca",
   "checkedBy": "",
   "updatedBy": "rayhanmaulanaputra8-byte",
-  "updatedAt": "2026-11-23T18:36"
+  "updatedAt": "2026-11-23T18:39"
  },
  "t10": {
   "order": 11,
