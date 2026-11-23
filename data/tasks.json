@@ -111,9 +111,9 @@
   "qtyTarget": 14,
   "qtyUnit": "m",
   "qtyRule": "gt",
-  "qtyActual": null,
+  "qtyActual": 13.7,
   "updatedBy": "rayhanmaulanaputra8-byte",
-  "updatedAt": "2026-11-23T03:47"
+  "updatedAt": "2026-11-23T13:18"
  },
  "p4": {
   "order": -1,
