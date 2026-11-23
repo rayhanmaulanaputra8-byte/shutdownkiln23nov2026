@@ -203,14 +203,14 @@
   "pic": "ENOS, SULKIFLY",
   "planStart": "2026-11-23T11:00",
   "planEnd": "2026-11-23T19:00",
-  "status": "jalan",
-  "progress": 80,
+  "status": "selesai",
+  "progress": 100,
   "actStart": "2026-11-23T08:46",
   "actEnd": "2026-11-23T11:13",
   "note": "Sudah pasang bracket, tinggal ganti flexible",
   "checkedBy": "Pablo",
   "updatedBy": "rayhanmaulanaputra8-byte",
-  "updatedAt": "2026-11-23T11:13"
+  "updatedAt": "2026-11-24T06:41"
  },
  "t04": {
   "order": 4,
