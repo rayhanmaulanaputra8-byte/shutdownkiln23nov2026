@@ -274,13 +274,13 @@
   "planStart": "2026-11-23T08:00",
   "planEnd": "2026-11-23T12:00",
   "status": "jalan",
-  "progress": 35,
+  "progress": 40,
   "actStart": "2026-11-23T16:29",
   "actEnd": "",
   "note": "",
   "checkedBy": "Pablo",
   "updatedBy": "rayhanmaulanaputra8-byte",
-  "updatedAt": "2026-11-23T17:38"
+  "updatedAt": "2026-11-23T17:46"
  },
  "t06": {
   "order": 7,
