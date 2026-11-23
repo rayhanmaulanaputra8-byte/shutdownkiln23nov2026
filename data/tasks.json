@@ -391,7 +391,7 @@
   "planStart": "2026-11-23T08:00",
   "planEnd": "2026-11-23T17:00",
   "status": "jalan",
-  "progress": 50,
+  "progress": 75,
   "actStart": "2026-11-23T10:25",
   "actEnd": "2026-11-23T10:44",
   "note": "Encoder sudah terpasang tinggal di program automation",
