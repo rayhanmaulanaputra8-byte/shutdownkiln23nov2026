@@ -390,14 +390,14 @@
   "pic": "YANCE",
   "planStart": "2026-11-23T08:00",
   "planEnd": "2026-11-23T17:00",
-  "status": "jalan",
-  "progress": 80,
+  "status": "selesai",
+  "progress": 100,
   "actStart": "2026-11-23T10:25",
   "actEnd": "2026-11-23T10:44",
   "note": "Encoder sudah terpasang tinggal di program automation",
   "checkedBy": "Pablo",
   "updatedBy": "rayhanmaulanaputra8-byte",
-  "updatedAt": "2026-11-23T10:45"
+  "updatedAt": "2026-11-23T12:49"
  },
  "t11": {
   "order": 12,
