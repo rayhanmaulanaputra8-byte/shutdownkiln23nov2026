@@ -153,12 +153,14 @@
   "pic": "ENOS",
   "planStart": "2026-11-23T08:00",
   "planEnd": "2026-11-23T09:00",
-  "status": "belum",
+  "status": "jalan",
   "progress": 0,
-  "actStart": "",
+  "actStart": "2026-11-23T09:15",
   "actEnd": "",
   "note": "",
-  "checkedBy": ""
+  "checkedBy": "",
+  "updatedBy": "rayhanmaulanaputra8-byte",
+  "updatedAt": "2026-11-23T09:15"
  },
  "t02": {
   "order": 2,
