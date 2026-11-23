@@ -101,7 +101,7 @@
   "pic": "Ismail",
   "planStart": "2026-11-23T00:00",
   "planEnd": "2026-11-23T04:00",
-  "status": "jalan",
+  "status": "kendala",
   "progress": 0,
   "actStart": "2026-11-23T01:39",
   "actEnd": "",
@@ -113,7 +113,7 @@
   "qtyRule": "gt",
   "qtyActual": 13.7,
   "updatedBy": "rayhanmaulanaputra8-byte",
-  "updatedAt": "2026-11-23T13:18"
+  "updatedAt": "2026-11-23T13:19"
  },
  "p4": {
   "order": -1,
