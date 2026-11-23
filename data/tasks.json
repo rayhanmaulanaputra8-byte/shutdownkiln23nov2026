@@ -179,12 +179,14 @@
   "pic": "ENOS, SULKIFLY",
   "planStart": "2026-11-23T09:00",
   "planEnd": "2026-11-23T11:00",
-  "status": "belum",
+  "status": "jalan",
   "progress": 0,
-  "actStart": "",
+  "actStart": "2026-11-23T13:58",
   "actEnd": "",
   "note": "",
-  "checkedBy": ""
+  "checkedBy": "",
+  "updatedBy": "rayhanmaulanaputra8-byte",
+  "updatedAt": "2026-11-23T13:58"
  },
  "t03": {
   "order": 3,
