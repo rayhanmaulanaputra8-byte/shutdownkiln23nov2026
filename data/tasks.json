@@ -334,14 +334,14 @@
   "planStart": "2026-11-23T08:00",
   "planEnd": "2026-11-23T19:00",
   "status": "jalan",
-  "progress": 0,
+  "progress": 2,
   "actStart": "2026-11-23T08:28",
   "actEnd": "",
   "note": "",
   "checkedBy": "",
   "waiveIf": "p3",
   "updatedBy": "rayhanmaulanaputra8-byte",
-  "updatedAt": "2026-11-23T08:28"
+  "updatedAt": "2026-11-23T08:38"
  },
  "t09": {
   "order": 10,
