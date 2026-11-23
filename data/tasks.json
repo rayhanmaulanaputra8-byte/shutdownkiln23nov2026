@@ -331,13 +331,15 @@
   "pic": "SBM, SULKIFLY",
   "planStart": "2026-11-23T08:00",
   "planEnd": "2026-11-23T19:00",
-  "status": "belum",
+  "status": "jalan",
   "progress": 0,
-  "actStart": "",
+  "actStart": "2026-11-23T08:28",
   "actEnd": "",
   "note": "",
   "checkedBy": "",
-  "waiveIf": "p3"
+  "waiveIf": "p3",
+  "updatedBy": "rayhanmaulanaputra8-byte",
+  "updatedAt": "2026-11-23T08:28"
  },
  "t09": {
   "order": 10,
