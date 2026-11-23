@@ -360,12 +360,14 @@
   "pic": "YANCE",
   "planStart": "2026-11-23T08:00",
   "planEnd": "2026-11-23T17:00",
-  "status": "belum",
+  "status": "jalan",
   "progress": 0,
-  "actStart": "",
+  "actStart": "2026-11-23T09:09",
   "actEnd": "",
   "note": "",
-  "checkedBy": ""
+  "checkedBy": "",
+  "updatedBy": "rayhanmaulanaputra8-byte",
+  "updatedAt": "2026-11-23T09:09"
  },
  "t10": {
   "order": 11,
