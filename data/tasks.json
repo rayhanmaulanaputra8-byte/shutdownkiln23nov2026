@@ -483,12 +483,12 @@
   "planStart": "2026-11-23T09:00",
   "planEnd": "2026-11-23T11:00",
   "status": "kendala",
-  "progress": 0,
+  "progress": 40,
   "actStart": "2026-11-23T08:27",
   "actEnd": "",
   "note": "Kabel isolator tidak ada stock",
   "checkedBy": "",
   "updatedBy": "rayhanmaulanaputra8-byte",
-  "updatedAt": "2026-11-23T08:48"
+  "updatedAt": "2026-11-23T10:45"
  }
 }
